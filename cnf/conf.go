@@ -119,6 +119,14 @@ func (s *ServerInfo) Validate() error {
 	return nil
 }
 
+type WatchdogReqFilter struct {
+	// Watchdog identification header name
+	HTTPIdHeaderName string `json:"httpIdHeaderName"`
+
+	// Watchdog header identification token
+	HTTPIdHeaderToken string `json:"httpIdHeaderToken"`
+}
+
 // Conf is a global configuration of the app
 type Conf struct {
 	ListenAddress          string   `json:"listenAddress"`
@@ -130,13 +138,14 @@ type Conf struct {
 
 	// SourcesRootDir is mainly used to locate html/xml templates and other
 	// assets so we can refer them in a relative way inside the code
-	SourcesRootDir string               `json:"sourcesRootDir"`
-	AssetsURLPath  string               `json:"assetsURLPath"`
-	ServerInfo     *ServerInfo          `json:"serverInfo"`
-	CorporaSetup   *corpus.CorporaSetup `json:"corpora"`
-	Redis          *rdb.Conf            `json:"redis"`
-	Logging        logging.LoggingConf  `json:"logging"`
-	TimeZone       string               `json:"timeZone"`
+	SourcesRootDir    string               `json:"sourcesRootDir"`
+	AssetsURLPath     string               `json:"assetsURLPath"`
+	ServerInfo        *ServerInfo          `json:"serverInfo"`
+	WatchdogReqFilter *WatchdogReqFilter   `json:"watchdogReqFilter"`
+	CorporaSetup      *corpus.CorporaSetup `json:"corpora"`
+	Redis             *rdb.Conf            `json:"redis"`
+	Logging           logging.LoggingConf  `json:"logging"`
+	TimeZone          string               `json:"timeZone"`
 
 	srcPath string
 }

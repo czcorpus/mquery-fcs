@@ -18,6 +18,10 @@
         "primaryLanguage": "en",
         "externalUrlPath": ""
     },
+    "watchdogReqFilter": {
+        "httpIdHeaderName": "X-Watchdog-Token",
+        "httpIdHeaderToken": "656423af456acd"
+    },
     "corpora": {
         "registryDir": "/var/opt/corpora/registry",
         "resources": [
